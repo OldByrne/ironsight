@@ -1,7 +1,10 @@
 package com.davebyrne.ironsight.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 import com.davebyrne.ironsight.R;
 import com.davebyrne.ironsight.adapter.GamesAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,16 +30,45 @@ public class MainListFragment extends Fragment {
     private RecyclerView recyclerView;
     private GamesAdapter mAdapter;
 
+    private int mData;
+
     public MainListFragment() {
         // Required empty public constructor
     }
 
+//    //Parcelable implementation
+//    protected MainListFragment(Parcel in) {
+//        mData = in.readInt();
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeInt(mData);
+//    }
+//
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    public static final Parcelable.Creator<MainListFragment> CREATOR = new Parcelable.Creator<MainListFragment>() {
+//        public MainListFragment createFromParcel(Parcel in) {
+//            return new MainListFragment(in);
+//        }
+//
+//        public MainListFragment[] newArray(int size) {
+//            return new MainListFragment[size];
+//        }
+//    };
+
+    //unused onCreate in fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
 
+    //onCreateView is used instead of onCreate and returns View
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,11 +86,16 @@ public class MainListFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
         //this is for clicking the list entries
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Game game = gameList.get(position);
-                Toast.makeText(getActivity().getApplicationContext(), game.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
+                String text = game.getTitle();
+
+                Intent i = new Intent(getActivity().getApplicationContext(), GameActivity.class);
+                i.putExtra("gameId", text);
+                startActivity(i);
+                //Toast.makeText(getActivity().getApplicationContext(), game.getTitle() + " is selected!", Toast.LENGTH_SHORT).show(); //tests if working
             }
 
             @Override
@@ -69,6 +107,8 @@ public class MainListFragment extends Fragment {
         prepareGameData();
         return rootView;
     }
+
+    //temporary hard coded data
     private void prepareGameData() {
         Game game = new Game("Super Mario Run", "Platformer", "18/11/2016");
         gameList.add(game);
