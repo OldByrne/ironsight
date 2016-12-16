@@ -78,15 +78,15 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         String title = getString(R.string.app_name);
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new MainListFragment();
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new BoardsFragment();
+                fragment = new UserListFragment();
                 title = getString(R.string.title_boards);
                 break;
             case 2:
-                fragment = new RatingFragment();
+                fragment = new SuggestedListFragment();
                 title = getString(R.string.title_location);
                 break;
             default:

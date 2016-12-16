@@ -5,9 +5,9 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
-    <string name="nav_item_home">Home</string>
-    <string name="nav_item_boards">Boards</string>
-    <string name="nav_item_location">Ratings</string>
+    <string name="nav_item_home">Everything</string>
+    <string name="nav_item_boards">My Games</string>
+    <string name="nav_item_location">Check These Out</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
@@ -16,9 +16,9 @@
         <item>@string/nav_item_location</item>
     </string-array>
 
-    <string name="title_location">Location</string>
-    <string name="title_boards">Boards</string>
-    <string name="title_home">Home</string>
+    <string name="title_location">Check These Out</string>
+    <string name="title_boards">My Games</string>
+    <string name="title_home">Everything</string>
 
     <string name="home_title">Byrne Hoverboards</string>
     <string name="promo">Featured board:</string>
@@ -31,16 +31,14 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_email">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign In</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
 
 </resources>

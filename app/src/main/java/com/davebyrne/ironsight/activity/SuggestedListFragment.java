@@ -6,18 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.davebyrne.ironsight.R;
 
-import java.util.List;
+
+public class SuggestedListFragment extends Fragment{
 
 
-public class BoardsFragment extends Fragment {
 
-
-    public BoardsFragment() {
+    public SuggestedListFragment() {
         // Required empty public constructor
     }
 
@@ -25,22 +22,19 @@ public class BoardsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_boards, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_sugglist, container, false);
+
 
         // Inflate the layout for this fragment
 
 
         return rootView;
     }
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -51,4 +45,7 @@ public class BoardsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+
+
 }

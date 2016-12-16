@@ -12,6 +12,12 @@
     android:weightSum="1">
 
     <!-- Login progress -->
+    <ImageView
+        android:src="@drawable/ic_logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageView" />
+
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -23,7 +29,8 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="290dp">
+        android:layout_height="290dp"
+        android:layout_weight="0.06">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -67,9 +74,10 @@
             <Button
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
