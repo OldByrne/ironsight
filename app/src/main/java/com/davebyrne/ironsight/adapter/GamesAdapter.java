@@ -48,7 +48,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.MyViewHolder
         Game game = gamesList.get(position);
         holder.title.setText(game.getTitle());
         holder.genre.setText(game.getGenre());
-        holder.year.setText(game.getYear());
+        holder.year.setText(game.getDate());
     }
 
     @Override

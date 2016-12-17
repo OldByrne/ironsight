@@ -90,10 +90,14 @@ public class MainListFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 Game game = gameList.get(position);
-                String text = game.getTitle();
+                String title = game.getTitle();
+                String genre = game.getGenre();
+                String date = game.getDate();
 
                 Intent i = new Intent(getActivity().getApplicationContext(), GameActivity.class);
-                i.putExtra("gameId", text);
+                i.putExtra("gameTitle", title);
+                i.putExtra("gameGenre", genre);
+                i.putExtra("gameDate", date);
                 startActivity(i);
                 //Toast.makeText(getActivity().getApplicationContext(), game.getTitle() + " is selected!", Toast.LENGTH_SHORT).show(); //tests if working
             }
@@ -160,6 +164,7 @@ public class MainListFragment extends Fragment {
 
         mAdapter.notifyDataSetChanged();
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

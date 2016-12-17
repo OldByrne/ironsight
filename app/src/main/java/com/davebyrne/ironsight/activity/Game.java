@@ -6,14 +6,14 @@ package com.davebyrne.ironsight.activity;
 
 public class Game {
 
-    private String title, genre, year;
+    private String title, genre, date;
 
     public Game() {
     }
 
-    public Game(String genre, String year, String title) {
+    public Game(String title, String genre, String date) {
         this.genre = genre;
-        this.year = year;
+        this.date = date;
         this.title = title;
     }
 
@@ -33,11 +33,11 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getYear() {
-        return year;
+    public String getDate() {
+        return date;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setDate(String date) {
+        this.date = date;
     }
 }

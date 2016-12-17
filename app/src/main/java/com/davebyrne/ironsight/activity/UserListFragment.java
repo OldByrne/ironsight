@@ -1,6 +1,7 @@
 package com.davebyrne.ironsight.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -34,8 +35,6 @@ public class UserListFragment extends Fragment {
 
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +49,29 @@ public class UserListFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Game game = gameList.get(position);
+                String title = game.getTitle();
+                String genre = game.getGenre();
+                String date = game.getDate();
+
+                Intent i = new Intent(getActivity().getApplicationContext(), GameActivity.class);
+                i.putExtra("gameTitle", title);
+                i.putExtra("gameGenre", genre);
+                i.putExtra("gameDate", date);
+                startActivity(i);
+                //Toast.makeText(getActivity().getApplicationContext(), game.getTitle() + " is selected!", Toast.LENGTH_SHORT).show(); //tests if working
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         prepareGameData();
 
         return rootView;
